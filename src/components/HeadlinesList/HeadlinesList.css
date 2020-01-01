@@ -1,0 +1,123 @@
+.article-container {
+  height: inherit;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+    url("../../Images/news.jpg") center center/cover no-repeat;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+  color: #ffffff;
+  min-height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.loader {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  transform: -webkit-translate(-50%, -50%);
+  transform: -moz-translate(-50%, -50%);
+  transform: -ms-translate(-50%, -50%);
+  border: 10px solid #f3f3f3;
+  border-top: 10px solid #3498db;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.lists-title {
+  margin: 0;
+  padding: 0;
+  line-height: 3rem;
+}
+
+.article-container ul {
+  margin: 0;
+  padding: 0;
+}
+.cards-container {
+  margin: auto;
+  width: 80%;
+}
+.cards-row {
+  margin: 0 -5px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.cards-column {
+  flex: 0 1 24%;
+  margin-bottom: 10px;
+  margin-right: 10px;
+}
+
+.container h4 {
+  line-height: 24px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+.content-link {
+  color: #ffffff;
+  text-decoration: none;
+}
+.content-link:hover {
+  text-decoration: underline;
+}
+.list-img {
+  width: 100%;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border: 1px solid white;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+img {
+  border-radius: 5px 5px 0 0;
+}
+
+.container {
+  padding: 2px 16px;
+}
+
+@media (max-width: 1253px) and (min-width: 942px) {
+  .cards-column {
+    flex: 0 1 32%;
+  }
+  .container h4 {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 941px) and (min-width: 629px) {
+  .cards-column {
+    flex: 0 1 48%;
+  }
+  .container h4 {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 628px) {
+  .cards-column {
+    flex: 0 1 97%;
+  }
+}
