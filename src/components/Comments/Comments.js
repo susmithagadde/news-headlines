@@ -3,10 +3,13 @@ import { useSelector, useDispatch } from "react-redux";
 import { addComment } from "../../redux";
 import "./Comments.css";
 
-const Comments = () => {
+const Comments = props => {
   const comments = useSelector(state => state.comments.comments);
   const dispatch = useDispatch();
   let input;
+  const { item } = props;
+  // console.log("props", item);
+
   return (
     <div className="comments-app">
       <h2>Add Comments</h2>
@@ -20,7 +23,7 @@ const Comments = () => {
             if (!input.value.trim()) {
               return;
             }
-            dispatch(addComment(input.value));
+            dispatch(addComment(input.value, item));
             input.value = "";
           }}
         >
@@ -40,13 +43,17 @@ const Comments = () => {
       </div>
 
       <div className="comments">
-        {comments.map(comment => (
-          <div className="comment" key={comment}>
-            <div className="comment-box">
-              <div className="comment-text">{comment}</div>
+        {comments.map((comment, index) =>
+          item.title === comment.item ? (
+            <div className="comment" key={index}>
+              <div className="comment-box">
+                <div className="comment-text">{comment.value}</div>
+              </div>
             </div>
-          </div>
-        ))}
+          ) : (
+            ""
+          )
+        )}
       </div>
     </div>
   );

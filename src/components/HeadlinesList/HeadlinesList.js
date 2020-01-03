@@ -2,13 +2,12 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { fetchLists } from "../../redux";
-import Pagination from "../Pagination/Pagination";
+import JwPagination from "jw-react-pagination";
 
 import "./HeadlinesList.css";
 
 const HeadlinesList = ({ fetchLists, articles, loading, error, item }) => {
-  const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage] = useState(10);
+  const [pageOfItems, setItems] = useState([]);
 
   useEffect(() => {
     fetchLists();
@@ -22,17 +21,8 @@ const HeadlinesList = ({ fetchLists, articles, loading, error, item }) => {
     return <div className="loader"></div>;
   }
 
-  //Get current articles
-  const indexOfLastArticle = currentPage * postsPerPage;
-  const indexOfFirstArticle = indexOfLastArticle - postsPerPage;
-  const currentArticles = articles.slice(
-    indexOfFirstArticle,
-    indexOfLastArticle
-  );
-
-  // Change Page
-  const paginate = pageNumber => {
-    setCurrentPage(pageNumber);
+  const onChangePage = pageOfItems => {
+    setItems(pageOfItems);
   };
 
   return (
@@ -40,7 +30,7 @@ const HeadlinesList = ({ fetchLists, articles, loading, error, item }) => {
       <div className="cards-container">
         <h2 className="lists-title">NEWS ARTICLES LIST</h2>
         <div className="cards-row">
-          {currentArticles.map(list => (
+          {pageOfItems.map(list => (
             <div key={list.title} className="cards-column">
               <div className="card">
                 <img
@@ -73,12 +63,7 @@ const HeadlinesList = ({ fetchLists, articles, loading, error, item }) => {
         </div>
       </div>
 
-      <Pagination
-        postsPerPage={postsPerPage}
-        totalPosts={articles.length}
-        currentPage={currentPage}
-        paginate={paginate}
-      />
+      <JwPagination items={articles} onChangePage={onChangePage} />
     </div>
   );
 };

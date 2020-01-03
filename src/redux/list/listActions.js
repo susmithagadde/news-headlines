@@ -27,11 +27,15 @@ export const fetchListsFailure = error => {
 export const fetchLists = () => {
   return dispatch => {
     dispatch(fetchListsRequest());
-    let url =
-      "https://newsapi.org/v2/top-headlines?" +
-      "country=in&" +
-      "apiKey=85acd3d822b140d79c7f27104408213c";
-    fetch(url)
+
+    let url = "https://newsapi.org/v2/top-headlines?country=in&pageSize=100";
+    const header = {
+      "X-Api-Key": "85acd3d822b140d79c7f27104408213c"
+    };
+    fetch(url, {
+      method: "GET",
+      headers: header
+    })
       .then(response => response.json())
       .then(res => {
         const articles = res.articles;

@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 import "./ListContent.css";
 import Comments from "../Comments/Comments";
 
@@ -18,9 +18,9 @@ const ListContent = props => {
 
   return (
     <div className="listcontent-detail">
-      <a href="/" className="previous round pull-left">
+      <Link to="/" className="previous round pull-left">
         &#8249;
-      </a>
+      </Link>
       <div className="article" key={item.title}>
         <div className="wrapper">
           <div className="wrapperText">
@@ -53,7 +53,7 @@ const ListContent = props => {
           <p className="full-content">{item.content}</p>
         </div>
       </div>
-      <Comments />
+      <Comments item={item} />
     </div>
   );
 };

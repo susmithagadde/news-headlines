@@ -1,6 +1,6 @@
 .article-container {
   height: inherit;
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
     url("../../Images/news.jpg") center center/cover no-repeat;
   background-attachment: fixed;
   margin: 0;
@@ -26,6 +26,28 @@
   width: 50px;
   height: 50px;
   animation: spin 2s linear infinite;
+}
+.pagination a {
+  color: white;
+  padding: 10px 16px !important;
+  border: 1px solid #ddd;
+}
+.pagination .active a {
+  background-color: #ddd;
+  color: black;
+  border: 1px solid #ddd;
+}
+
+.pagination li a:hover {
+  background-color: #ddd;
+  color: black;
+  border: 1px solid #ccc;
+}
+.pagination .first,
+.pagination .last,
+.pagination .previous,
+.pagination .next {
+  display: none !important;
 }
 
 @keyframes spin {
@@ -55,12 +77,13 @@
   margin: 0 -5px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .cards-column {
   flex: 0 1 24%;
-  margin-bottom: 10px;
-  margin-right: 10px;
+  margin-bottom: 30px;
+  margin-right: 50px;
 }
 
 .container h4 {
@@ -77,11 +100,13 @@
 }
 .list-img {
   width: 100%;
+  height: 200px;
+  border-top-left-radius: 6%;
+  border-top-right-radius: 6%;
 }
 
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  border: 1px solid white;
   text-align: center;
   border-radius: 5px;
 }
@@ -95,29 +120,60 @@ img {
 }
 
 .container {
-  padding: 2px 16px;
+  padding: 1px 16px;
+  background: #696969;
+  height: 170px;
+  margin-top: -4px;
+  border-bottom-left-radius: 6%;
+  border-bottom-right-radius: 6%;
+}
+@media (max-width: 1125px) and (min-width: 991px) {
+  .cards-column {
+    flex: 0 1 37%;
+  }
 }
 
-@media (max-width: 1253px) and (min-width: 942px) {
+@media (max-width: 1253px) and (min-width: 1126px) {
   .cards-column {
-    flex: 0 1 32%;
+    flex: 0 1 27%;
   }
   .container h4 {
-    font-size: 22px;
+    font-size: 17px;
+  }
+  .container {
+    height: 200px;
   }
 }
 
-@media (max-width: 941px) and (min-width: 629px) {
+@media (max-width: 665px) and (min-width: 630px) {
+  .container {
+    height: 215px;
+  }
+}
+
+@media (max-width: 990px) and (min-width: 629px) {
   .cards-column {
-    flex: 0 1 48%;
+    flex: 0 1 40%;
   }
   .container h4 {
-    font-size: 22px;
+    font-size: 17px;
+  }
+  .container {
+    height: 190px;
   }
 }
 
 @media (max-width: 628px) {
   .cards-column {
-    flex: 0 1 97%;
+    flex: 0 1 91%;
+    margin-right: 0px;
+    margin-bottom: 15px;
+  }
+}
+@media (min-width: 1600px) {
+  .cards-column {
+    flex: 0 1 19%;
+    margin-bottom: 30px;
+    margin-right: 50px;
   }
 }

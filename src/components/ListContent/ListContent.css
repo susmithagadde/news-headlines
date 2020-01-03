@@ -22,7 +22,7 @@ mark {
 }
 .listcontent-detail {
   height: inherit;
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+  background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
     url("../../Images/news.jpg") center center/cover no-repeat;
   background-attachment: fixed;
   margin: 0;

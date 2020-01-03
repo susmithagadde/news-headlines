@@ -7,8 +7,11 @@ const initialState = {
 const commentsReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_COMMENT:
-      if (action.payload !== "") {
-        state.comments.push(action.payload);
+      if (action.payload.value !== "") {
+        state.comments.push({
+          item: action.payload.item.title,
+          value: action.payload.value
+        });
         var test = state.comments;
       } else {
         test = state.comments;
